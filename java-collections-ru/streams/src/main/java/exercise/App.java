@@ -6,16 +6,11 @@ import java.util.Arrays;
 
 // BEGIN
 public class App {
-    public static int getCountOfFreeEmails(List<String> emails) {
-        List<String> freeDoments = List.of("@gmail.com", "@yandex.ru", "@hotmail.com");
-        int count = (int) emails.stream()
-                .filter(free -> free.contains(freeDoments.get(0)))
-                .count();
-        count += (int) emails.stream()
-                .filter(free -> free.contains(freeDoments.get(1)))
-                .count();
-        count += (int) emails.stream()
-                .filter(free -> free.contains(freeDoments.get(2)))
+    public static long getCountOfFreeEmails(List<String> emails) {
+        List<String> freeDoments = Arrays.asList("gmail.com", "yandex.ru", "hotmail.com");
+        long count = emails.stream()
+                .map(free -> free.split("@")[1])
+                .filter(free -> freeDoments.contains(free))
                 .count();
         return count;
     }
