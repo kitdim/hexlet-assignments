@@ -2,6 +2,8 @@ package exercise;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +59,45 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testReversedSequence1() {
+        CharSequence text = new ReversedSequence("abcdef");
+        var actual = text.toString();
+        var expect = "fedcba";
+        assertThat(actual).isEqualTo(expect);
+    }
+    @Test
+    void testReversedSequence2() {
+        CharSequence text = new ReversedSequence("abcdef");
+        var actual = text.charAt(1);
+        var expect = 'e';
+        assertThat(actual).isEqualTo(expect);
+    }
+    @Test
+    void testReversedSequence3() {
+        CharSequence text = new ReversedSequence("abcdef");
+        var actual = text.length();
+        var expect = 6;
+        assertThat(actual).isEqualTo(expect);
+    }
+    @Test
+    void testReversedSequence4() {
+        CharSequence text = new ReversedSequence("abcdef");
+        var actual = text.subSequence(1, 4).toString();
+        var expect = "edc";
+        assertThat(actual).isEqualTo(expect);
+    }
+    @Test
+    void testReversedSequence5() {
+        CharSequence text = new ReversedSequence("abcdef");
+        Throwable throwable1 = catchThrowable(() -> {
+            text.charAt(8);
+        });
+        assertThat(throwable1).isInstanceOf(IndexOutOfBoundsException.class);
+        Throwable throwable2 = catchThrowable(() -> {
+            text.subSequence(8, 8).toString();
+        });
+        assertThat(throwable2).isInstanceOf(IndexOutOfBoundsException.class);
+    }
     // END
 }
