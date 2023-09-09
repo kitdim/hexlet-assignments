@@ -12,4 +12,8 @@ class InputTag implements TagInterface{
     public String render() {
         return "<input type=\"" + type + "\"" + " value=\"" + value + "\">";
     }
+    @Override
+    public String toString() {
+        return render();
+    }
 }
