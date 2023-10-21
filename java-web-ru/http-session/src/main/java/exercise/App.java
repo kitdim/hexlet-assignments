@@ -21,12 +21,9 @@ public final class App {
             var page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
             var per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
 
-            List<Map<String, String>> usersList = new ArrayList<>();
-            var index = (page - 1) * per;
-            for (int i = index; i < index + per; i++) {
-                usersList.add(USERS.get(i));
-            }
-            ctx.json(usersList);
+            var offset = (page - 1) * per;
+            List<Map<String, String>> sliceOfUsers = USERS.subList(offset, offset + per);
+            ctx.json(sliceOfUsers);
         });
         // END
 
