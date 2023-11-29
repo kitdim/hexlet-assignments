@@ -34,7 +34,7 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/articles/new", ctx -> {
+        app.get("articles/new", ctx -> {
             var page = new NewArticlePage();
             ctx.render("articles/build.jte", Collections.singletonMap("page", page));
         });
