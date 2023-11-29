@@ -29,11 +29,12 @@ public class ArticleRepository {
         return Optional.of(article);
     }
 
-    public static Article findByTitle(String title) {
-        return entities.stream()
+    public static Optional<Article> findByTitle(String title) {
+        var article = entities.stream()
                 .filter(entity -> entity.getTitle().equals(title))
                 .findAny()
                 .orElse(null);
+        return Optional.of(article);
     }
 
     public static boolean existsByTitle(String title) {
