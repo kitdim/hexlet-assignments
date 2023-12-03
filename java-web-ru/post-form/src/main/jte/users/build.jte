@@ -23,12 +23,6 @@
             <input type="password" required name="password" />
         </label>
     </div>
-    <div>
-        <label>
-            Confirm password
-            <input type="password" required name="passwordConfirmation" />
-        </label>
-    </div>
     <input type="submit" value="Send" />
 </form>
 

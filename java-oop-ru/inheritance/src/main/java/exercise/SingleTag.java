@@ -10,14 +10,7 @@ class SingleTag extends Tag {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("<" + nameTag);
-        for (Map.Entry<String, String> entry : attribute.entrySet()) {
-            result.append(" ")
-                    .append(entry.getKey())
-                    .append("=\"" + entry.getValue() + "\"");
-        }
-        result.append(">");
-        return result.toString();
+        return String.format("<%s%s>", getNameTag(), stringifyAttributes());
     }
 }
 // END

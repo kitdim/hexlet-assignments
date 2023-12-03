@@ -12,8 +12,17 @@ abstract class Tag {
         this.nameTag = nameTag;
         this.attribute = attribute;
     }
+    public String stringifyAttributes() {
+        return attribute.keySet().stream()
+                .map(key -> {
+                    String value = attribute.get(key);
+                    return String.format(" %s=\"%s\"", key, value);
+                })
+                .collect(Collectors.joining(""));
+    }
 
-    @Override
-    public abstract String toString();
+    public String getNameTag() {
+        return nameTag;
+    }
 }
 // END

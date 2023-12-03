@@ -28,4 +28,12 @@ public class Data {
         }
         return domains;
     }
+    public static List<String> getTheoryBigBand() {
+        Faker faker = new Faker(new Locale("en"), RANDOM);
+        List<String> bigBangTheory = new ArrayList<>();
+        for (int i = 0; i < ITEMS_COUNT; i++){
+            bigBangTheory.add(faker.bigBangTheory().character());
+        }
+        return bigBangTheory;
+    }
 }

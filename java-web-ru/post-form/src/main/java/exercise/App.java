@@ -37,7 +37,6 @@ public final class App {
             var lastName = StringUtils.capitalize(ctx.formParam("lastName"));
             var email = ctx.formParam("email").toLowerCase().trim();
             var password = ctx.formParam("password");
-            var passwordConfirmation = ctx.formParam("passwordConfirmation");
             var securityPassword = Security.encrypt(password);
             var user = new User(firstName, lastName, email, securityPassword);
             UserRepository.save(user);

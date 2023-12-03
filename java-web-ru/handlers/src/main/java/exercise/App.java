@@ -14,13 +14,16 @@ public final class App {
         // BEGIN
         List<String> phones = Data.getPhones();
         List<String> domains = Data.getDomains();
+        List<String> bigBangTheory = Data.getTheoryBigBand();
         ObjectMapper mapper = new JsonMapper();
 
         var app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
         });
+        app.get("/", ctx -> ctx.result(mapper.writeValueAsString("Hello")));
         app.get("/phones", ctx -> ctx.result(mapper.writeValueAsString(phones)));
         app.get("/domains", ctx -> ctx.result(mapper.writeValueAsString(domains)));
+        app.get("/bigBangTheory", ctx -> ctx.result(mapper.writeValueAsString(bigBangTheory)));
         return app;
         // END
     }

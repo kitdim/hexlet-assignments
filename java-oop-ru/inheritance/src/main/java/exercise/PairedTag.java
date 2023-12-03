@@ -16,19 +16,13 @@ class PairedTag extends Tag {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("<" + nameTag);
-        for (Map.Entry<String, String> entry : attribute.entrySet()) {
-            result.append(" ")
-                    .append(entry.getKey())
-                    .append("=\"" + entry.getValue() + "\"");
-        }
-        result.append(">");
-        result.append(body);
-        for (var tag : children) {
-            result.append(tag);
-        }
-        result.append("</" + this.nameTag + ">");
-        return result.toString();
+        String attributes = stringifyAttributes();
+        String name = getNameTag();
+        String value = children.stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(""));
+
+        return String.format("<%s%s>%s%s</%s>", name, attributes, body, value, name);
     }
 }
 // END

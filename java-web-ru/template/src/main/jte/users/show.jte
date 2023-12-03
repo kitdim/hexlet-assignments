@@ -23,6 +23,7 @@
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Email</th>
+            <th scope="col">Link</th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
                 <td>${user.getFirstName()}</td>
                 <td>${user.getLastName()}</td>
                 <td>${user.getEmail()}</td>
+                <td><a href="users/${user.getId()}">link</a></td>
             </tr>
         @endfor
         </tbody>
