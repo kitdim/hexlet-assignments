@@ -18,7 +18,7 @@ public class Generator {
         for (int i = 0; i < ITEMS_COUNT; i++) {
             var name = faker.book().title();
             var body = faker.lorem().sentence();
-            var id = faker.number().randomNumber();
+            var id = (Long) faker.number().randomNumber();
             var post = new Post(id, name, body);
             posts.add(post);
         }
