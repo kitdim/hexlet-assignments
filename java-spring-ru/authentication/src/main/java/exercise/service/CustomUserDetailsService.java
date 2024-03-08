@@ -4,11 +4,9 @@ import exercise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
-// BEGIN
 @Service
 public class CustomUserDetailsService implements UserDetailsManager {
     @Autowired
@@ -46,4 +44,3 @@ public class CustomUserDetailsService implements UserDetailsManager {
         throw new UnsupportedOperationException("Unimplemented method 'userExists'");
     }
 }
-// END
